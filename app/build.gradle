@@ -1,0 +1,21 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.sohanlakra.mybudget'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.sohanlakra.mybudget'
+        minSdk 23
+        targetSdk 35
+        versionCode 4
+        versionName '4.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
