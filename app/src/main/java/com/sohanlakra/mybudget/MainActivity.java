@@ -39,6 +39,22 @@ public class MainActivity extends Activity {
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 return false;
             }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                // V4 is a native Android wrapper, so hide the web PWA
+                // installation/status panels from the Android app UI.
+                view.evaluateJavascript(
+                    "(function(){" +
+                    "['installPanel','pwaDiag','installBox','pwaInstallCard'].forEach(function(id){" +
+                    "var e=document.getElementById(id); if(e)e.style.display='none';" +
+                    "});" +
+                    "document.querySelectorAll('[id*=\"install\"],[id*=\"pwaDiag\"]').forEach(function(e){" +
+                    "if(e.id==='installPanel'||e.id==='pwaDiag'||e.id==='installBox'||e.id==='pwaInstallCard')e.style.display='none';" +
+                    "});" +
+                    "})()", null);
+            }
         });
 
         if (savedInstanceState == null) {

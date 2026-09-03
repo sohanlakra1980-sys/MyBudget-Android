@@ -32,3 +32,9 @@ The existing Google Apps Script backend in the web app is not changed.
 
 ## Why V4 uses an Android wrapper
 The web PWA is technically valid on the current device, but Chrome is not exposing `beforeinstallprompt`. A native Android wrapper avoids that browser-install limitation while preserving the existing web app and Sheets backend.
+
+
+## V4.1 update
+
+The Android app hides the web PWA installation and PWA Status panels.
+The Google Sheets backend and existing Budget features are unchanged.
